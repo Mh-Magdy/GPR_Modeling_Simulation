@@ -59,11 +59,12 @@ python3 -m tools.plot_Bscan model1.out  Ey
 
 ![output5](./imgs/BscanHy.png)
 
+
+**Simple model Animation in Python**
+inside scripts directory run animate.py script.
 ```
 python3 animate.py
 ```
-
-**Simple model Animation in Python**
 
 ![output3](./imgs/output3.gif)
 
@@ -72,11 +73,17 @@ python3 animate.py
 Geometry files use the open source Visualization ToolKit (VTK) format which can be viewed in many free readers, such as Paraview. Paraview is an open-source, multi-platform data analysis and visualization application. It is available for Linux, Mac OS X, and Windows.
 
 The #geometry_view: command produces either ImageData (.vti) for a per-cell geometry view, or PolygonalData (.vtp) for a per-cell-edge geometry view. The per-cell geometry views also show the location of the PML regions and any sources and receivers in the model. The following are steps to get started with viewing geometry files in Paraview:
-1- Install Paraview
-2- Open the snapshot.vti or the geometry_view.vti
-3- Click the Apply button in the Properties panel. You should see an outline of the volume of the geometry view.
-4- Change field magnitude, coloring, materials in the left pannel.
+
+
+* 1- Install Paraview
+* 2- Open the snapshot.vti or the geometry_view.vti
+* 3- Click the Apply button in the Properties panel. You should see an outline of the volume of the geometry view.
+* 4- Change field magnitude, coloring, materials in the left panel.
+
+**GPR motion animation with domain settings [Sand, air materials], metallic cylinder buried in the sand**
 
 ![output1](./imgs/output1.gif)
+
+**Electric Field Propgation**
 
 ![output2](./imgs/output2.gif)
