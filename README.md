@@ -87,3 +87,35 @@ The #geometry_view: command produces either ImageData (.vti) for a per-cell geom
 **Electric Field Propgation**
 
 ![output2](./imgs/output2.gif)
+
+---------------------------------------------------------------------------------
+
+**Complex/Fractical Material with Rough Surface**
+
+```
+# Process the input file, rquires pycuda, cuda toolkit installed. 60 iterations
+# model3.in models rough terrain with complex materials
+python3 -m gprMax model3.in -n 60 -gpu
+
+# Produce single output file model1.out from the model1[60].out files
+python3 -m tools.outputfiles_merge model3 --remove-files
+
+# Plot Bscan of Electric field in y direction [Ex, Ez, Hx, Hy, Hz edit here]
+python3 -m tools.plot_Bscan model3.out  Ey
+```
+
+**Electric Field Propgation**
+
+![output6](./imgs/output4.gif)
+
+**Mag Field Propgation**
+
+![output7](./imgs/output5.gif)
+
+**Electric Field Strength in y-axis (Rx)**
+
+![output8](./imgs/BscanEyRough.png)
+
+**Magnetic Field Strength in y-axis (Rx)**
+
+![output9](./imgs/BscanHyRough.png)
