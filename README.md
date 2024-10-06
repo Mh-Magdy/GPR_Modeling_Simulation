@@ -15,7 +15,6 @@ Apache License, Version 2.0
 
 * [Installation](#Installation)
 * [Usage](#Usage)
-* [Demo](#Demo)
 
 
 ## Installation
@@ -27,6 +26,7 @@ conda update conda
 conda install git
 git clone https://github.com/gprMax/gprMax.git
 cd gprMax
+# inside the gprMax directory.
 conda env create -f conda_env.yml
 ```
 
@@ -42,16 +42,41 @@ python3 setup.py install
 ## Usage
 
 ```
+# Process the input file, rquires pycuda, cuda toolkit installed. 60 iterations
 python3 -m gprMax model1.in -n 60 -gpu
+
+# Produce single output file model1.out from the model1[60].out files
+python3 -m tools.outputfiles_merge model1 --remove-files
+
+# Plot Bscan of Electric field in y direction [Ex, Ez, Hx, Hy, Hz edit here]
+python3 -m tools.plot_Bscan model1.out  Ey
 ```
-## Demo
+**Electric Field Strength in y-axis (Rx)**
+
+![output4](./imgs/BscanEy.png)
+
+**Magnetic Field Strength in y-axis (Rx)**
+
+![output5](./imgs/BscanHy.png)
+
+```
+python3 animate.py
+```
+
+**Simple model Animation in Python**
+
+![output3](./imgs/output3.gif)
+
+**3D Animation of Fields and Matrials and motion using Paraview program**
+
+Geometry files use the open source Visualization ToolKit (VTK) format which can be viewed in many free readers, such as Paraview. Paraview is an open-source, multi-platform data analysis and visualization application. It is available for Linux, Mac OS X, and Windows.
+
+The #geometry_view: command produces either ImageData (.vti) for a per-cell geometry view, or PolygonalData (.vtp) for a per-cell-edge geometry view. The per-cell geometry views also show the location of the PML regions and any sources and receivers in the model. The following are steps to get started with viewing geometry files in Paraview:
+1- Install Paraview
+2- Open the snapshot.vti or the geometry_view.vti
+3- Click the Apply button in the Properties panel. You should see an outline of the volume of the geometry view.
+4- Change field magnitude, coloring, materials in the left pannel.
 
 ![output1](./imgs/output1.gif)
 
 ![output2](./imgs/output2.gif)
-
-![output3](./imgs/output3.gif)
-
-![output4](./imgs/BscanEy.png)
-
-![output5](./imgs/BscanHy.png)
