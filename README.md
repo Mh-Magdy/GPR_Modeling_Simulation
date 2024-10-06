@@ -48,9 +48,9 @@ python3 -m gprMax model1.in -n 60 -gpu
 
 ![output1](./imgs/output1.gif)
 
-![output2](./imgs/output1.gif)
+![output2](./imgs/output2.gif)
 
-![output3](./imgs/output1.gif)
+![output3](./imgs/output2.gif)
 
 ![output4](./imgs/BscanEy.png)
 
